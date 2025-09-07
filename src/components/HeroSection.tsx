@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import { School, Users, Zap, Cog, BookOpenText, Presentation } from "lucide-react";
 import LogoDark from "../assets/class-echo-logo-dark.png";
 
-const HeroSection = () => {
-  const [hasAnimated, setHasAnimated] = useState(false);
+const HeroSection: React.FC = () => {
+  const [hasAnimated, setHasAnimated] = useState<boolean>(false);
 
   useEffect(() => {
     // A small delay to ensure the component is mounted before starting the animation
-    const timeoutId = setTimeout(() => {
+    const timeoutId: NodeJS.Timeout = setTimeout(() => {
       setHasAnimated(true);
     }, 100);
 
@@ -127,7 +127,7 @@ const HeroSection = () => {
                     src={LogoDark}
                     alt="Class Echo Logo"
                     className="w-20 h-20"
-                    onError={(e) => {
+                    onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
                       const target = e.target as HTMLImageElement;
                       target.onerror = null;
                       target.src = "https://placehold.co/48x48/666666/ffffff?text=Logo";
